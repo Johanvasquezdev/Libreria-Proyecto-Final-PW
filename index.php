@@ -1,7 +1,7 @@
 <?php
 include_once 'config/db.php';
 include_once 'models/Libro.php';
-
+// Se establece la conexión a la base de datos
 $database = new Database();
 $db = $database->getConnection();
 
@@ -9,7 +9,7 @@ $libroModel = new Libro($db);
 $stmt = $libroModel->getAll(); 
 $libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
+// Página para mostrar el listado de libros
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -20,7 +20,7 @@ $libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body class="bg-gray-100 font-sans">
     <nav class="bg-blue-900 p-4 text-white shadow-lg">
         <div class="container mx-auto flex justify-between">
-            [cite_start]<h1 class="font-bold text-xl text-yellow-400">ITLA Librería</h1> [cite: 1, 5]
+           <h1 class="font-bold text-xl text-yellow-400">ITLA Librería</h1> 
             <div class="space-x-4">
                 <a href="index.php" class="hover:text-yellow-400 border-b-2 border-yellow-400">Libros</a>
                 <a href="autores.php" class="hover:text-yellow-400">Autores</a>
@@ -28,7 +28,7 @@ $libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     </nav>
-
+// Requerimiento: Mostrar el título, tipo y precio de cada libro en una tabla
     <div class="container mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
         <h2 class="text-3xl font-bold mb-6 text-gray-800 text-center">Listado de Libros</h2>
         <div class="overflow-x-auto">
@@ -41,7 +41,7 @@ $libros = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </tr>
                 </thead>
                 <tbody class="text-gray-700">
-                    [cite_start]<?php foreach ($libros as $libro): ?> [cite: 37]
+                    <?php foreach ($libros as $libro): ?>
                     <tr class="border-b hover:bg-gray-50">
                         <td class="px-4 py-3 font-semibold"><?php echo $libro['titulo']; ?></td>
                         <td class="px-4 py-3"><?php echo $libro['tipo']; ?></td>

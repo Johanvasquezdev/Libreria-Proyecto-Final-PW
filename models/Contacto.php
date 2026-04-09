@@ -1,4 +1,5 @@
 <?php
+// Clase para gestionar los contactos en la base de datos
 class Contacto {
     private $conn;
     private $table_name = "contacto";

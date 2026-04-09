@@ -2,7 +2,8 @@
 include_once 'config/db.php';
 $mensaje = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") { [cite: 36]
+// Procesar el formulario de contacto
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
     $database = new Database();
     $db = $database->getConnection();
 
@@ -19,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { [cite: 36]
     $mensaje = "¡Mensaje enviado con éxito!";
 }
 ?>
-
+// Página para mostrar el formulario de contacto
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -28,15 +29,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { [cite: 36]
 </head>
 <body class="bg-gray-100">
     <div class="max-w-md mx-auto mt-12 bg-white p-8 rounded-xl shadow-2xl">
-        [cite_start]<h2 class="text-2xl font-bold mb-6 text-blue-900">Formulario de Contacto</h2> [cite: 19]
+        <h2 class="text-2xl font-bold mb-6 text-blue-900">Formulario de Contacto</h2> 
         
         <?php if($mensaje): ?>
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
                 <?php echo $mensaje; ?>
             </div>
         <?php endif; ?>
-
-        [cite_start]<form method="POST" action="contacto.php" class="space-y-4"> [cite: 20, 36]
+// Requerimiento: Formulario de contacto con campos para nombre, correo, asunto y comentario
+        <form method="POST" action="contacto.php" class="space-y-4">
             <div>
                 <label class="block text-sm font-medium text-gray-700">Nombre</label>
                 <input type="text" name="nombre" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm p-2 bg-gray-50" required>

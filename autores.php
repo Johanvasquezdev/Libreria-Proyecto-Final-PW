@@ -10,7 +10,7 @@ $stmt = $db->prepare($query);
 $stmt->execute();
 $autores = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
+// Página para mostrar el listado de autores
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -29,9 +29,9 @@ $autores = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     </nav>
-
+// Requerimiento: Mostrar el nombre completo, país, ciudad y número de teléfono de cada autor
     <div class="container">
-        [cite_start]<h2 class="mb-4 text-center">Listado de Autores</h2>
+        <h2 class="mb-4 text-center">Listado de Autores</h2>
         <div class="row">
             <?php foreach($autores as $autor): ?>
             <div class="col-md-4 mb-3">
@@ -40,7 +40,7 @@ $autores = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <h5 class="card-title text-primary"><?php echo $autor['nombre'] . " " . $autor['apellido']; ?></h5>
                         <p class="card-text">
                             <strong>País:</strong> <?php echo $autor['pais']; ?><br>
-                            <strong>Ciudad:</strong> <?php echo $autor['ciudad']; ?><br>
+                            <strong>Ciudad:</strong> <?php echo $autor['ciudad']; ?><br> // Requerimiento: Mostrar el número de teléfono de cada autor
                             <strong>Tel:</strong> <?php echo $autor['telefono']; ?>
                         </p>
                     </div>

@@ -1,4 +1,5 @@
 <?php
+// Clase para gestionar los autores en la base de datos
 class Autor {
     private $conn;
     private $table_name = "autores";

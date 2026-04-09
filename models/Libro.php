@@ -1,4 +1,5 @@
 <?php
+// Clase para gestionar los libros en la base de datos
 class Libro {
     private $conn;
     private $table_name = "titulos";
